@@ -1,4 +1,6 @@
 <?
+
+
 function catch_that_image() {
     global $post, $posts;
     $first_img = '';
@@ -12,3 +14,31 @@ function catch_that_image() {
     }
     return $first_img;
 }
+
+
+function show_all_posts($content = null) {
+  ob_start(); 
+  
+  $posts = get_posts(array('post_type'=>'post'));
+  echo '<div class="projects">';
+  foreach ($posts as $post) {
+    $attachment_image = get_children( array(
+      'numberposts' => 1,
+      'post_mime_type' => 'image',
+      'post_parent' => $post->ID,
+      'post_type' => 'attachment'
+    ) );
+    
+    // вынимаем первую картинку из массива
+    $attachment_image = array_shift($attachment_image);
+    
+    $img = '<img class="image_preview" src="' . wp_get_attachment_url( $attachment_image->ID ) . '" alt="" />';
+    echo '<article class="project postBox">';
+    echo $img;
+    echo '</article>';
+  }
+  echo '</div>';
+  return ob_get_clean();
+}
+
+add_shortcode('show-posts', 'show_all_posts');

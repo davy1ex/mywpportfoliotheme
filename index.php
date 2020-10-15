@@ -34,28 +34,7 @@ foreach ($pages as $page_data) {
     </div>
 </a> -->
 
-<a name="portfolio">
-    <div class="container content portfolio desc">
-        <div class="title">
-            <span class="line">Портфолио</span>
-        </div>
 
-        <div class="text">
-            Внизу предоставленны проекты, над которыми я имел честь работать. Какие-то были сделаны ради собтсвенного интереса, а какие-то на заказ
-        </div>
-        
-        <div class="projects">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <article class="project postBox">
-                    <a href="<?php the_permalink() ?>"><img class="image_preview" src="<?php echo catch_that_image() ?>" alt=""></a>
-                </article>                
-                <?php endwhile; ?>
-            <?php else : ?>            
-                <h1>А здесь нет ничего :( 404 </h1>            
-            <?php endif; ?>
-        </div>
-    </div>
-</a>
 
 <!-- <a name="contacts">
     <div class="container desc contacts">
