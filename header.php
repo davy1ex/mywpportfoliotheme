@@ -4,29 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/avatar.jpg" type="image/jpg">
-    <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-
-
-
-    <!-- <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css"> -->
-
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css" />
-
-
-    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.js"></script>>
-    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/live.js"></script>
-
-
-    <?php wp_head(); ?>
+    
 </head>
 <body>
     <a name="main">
-        <div class="container mynameis">
+        <div class="mynameis" style="background-image: url(<?php the_field( 'banner' ) ?>)">
             <div class="mynameis_wrapper">
                 <div class="avatar">
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/avatar.jpg" alt="">
+                    <img src=<?php the_field( 'avatar' ) ?> alt="">
+                    <!-- <img src=<?php the_field( 'avatar' ) ?> alt=""> -->
                 </div>
                 <!-- <div class="title">davy1ex</div> -->
                 <div class="myname">Давыдов Алексей</div>
@@ -49,3 +35,4 @@
             <div class="header_item icon"><a href="#contacts"><img class="header_img" src="<?php bloginfo('stylesheet_directory'); ?>/images/icons/email.svg" alt=""><div class="header_text">Контакты</div></a></div>
         </div>
     </header>
+<?php wp_head(); ?>
