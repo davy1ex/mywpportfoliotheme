@@ -1,0 +1,20 @@
+{
+    "require": {
+        "wpackagist-plugin/advanced-custom-fields": "^5.9",
+        "wpackagist-plugin/pods": "^2.7"
+    },
+
+    "repositories": [
+        {
+            "type": "composer",
+            "url" : "https://wpackagist.org"
+        }
+    ],
+
+    "extra": {
+        "installer-paths": {
+            "../../plugins/{$name}/": ["type:wordpress-plugin"],
+            "../../themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}
